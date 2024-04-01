@@ -1,0 +1,94 @@
+.project-with-tasks-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.project-name,
+.project-description {
+    margin-bottom: 10px;
+}
+
+.project-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f2f2f2bb;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.create-edit-form-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f2f2f2bb;
+    padding: 10px;
+    margin-top: 5px;
+    max-width: 500px;
+}
+
+.task-info-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f2f2f2bb;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 425px;
+}
+
+.header-with-button {
+    display: flex;
+    align-items: center;
+}
+
+.header-with-button button {
+    padding: 0.1rem 0.3rem;
+    line-height: 1.5;
+}
+
+.header-title {
+    margin-right: 0px !important;
+}
+
+.button-container,
+.button-container-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.button-container-top {
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.button-container-top p {
+    align-items: center;
+    float: right;
+    margin-left: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.button-container button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+}
+
+.project-header .project-name {
+    margin-right: 10px;
+}
+
+.project-actions {
+    margin-left: auto;
+}
+
+table {
+    background-color: white;
+}

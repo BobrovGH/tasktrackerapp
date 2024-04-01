@@ -1,0 +1,99 @@
+<!-- Страница просмотра всех задач в таблице-->
+{% extends 'head.html' %}
+{% block content %}
+<form method="post" action="."> 
+    {% csrf_token %}
+    <div class="button-container-top">
+        <button name="createTask" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Создать задачу
+        </button>
+        {% include 'widget_to_show_sort_type.html' %}
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 18%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Проект</span> 
+                            <button type="submit" name="orderTasks" value="project" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 18%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Задача</span> 
+                            <button type="submit" name="orderTasks" value="title" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 15%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Дэдлайн</span> 
+                            <button type="submit" name="orderTasks" value="deadline" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 15%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Напоминание</span> 
+                            <button type="submit" name="orderTasks" value="reminder" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 10%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Статус</span> 
+                            <button type="submit" name="orderTasks" value="status" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 15%;">
+                        <div class="header-with-button">
+                            <span class="header-title">Пользователь</span> 
+                            <button type="submit" name="orderTasks" value="task_user" class="btn btn-link">
+                                <i class="fas fa-sort-down"></i>
+                            </button>
+                            <input type="hidden" name="sort_by" value="{{ sort_by }}">
+                        </div>
+                    </th>
+                    <th scope="col" style="width: 9%;">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in data %}
+                <tr>
+                    <td>{{ task.project }}</td>
+                    <!-- Ссылка для открытия информации о задаче-->
+                    <td><a href="{% url 'task_info_page' task_id=task.id %}?prev_page=/home">{{ task.title }}</a></td>
+                    <td>{{ task.deadline|date:"d.m.Y H:i" }}</td>
+                    <td>{{ task.reminder|date:"d.m.Y H:i" }}</td>
+                    <td>{{ task.status }}</td>
+                    <td>{{ task.task_user }}</td>
+                    <td>
+                        <div class="button-container">
+                            <button name="editTask" value={{ task.id }} class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button name="deleteTask" value={{ task.id }} class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</form>
+{% endblock content %}

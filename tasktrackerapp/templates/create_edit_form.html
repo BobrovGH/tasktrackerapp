@@ -1,0 +1,17 @@
+<!-- Страниц адля создания и изменения проектов и задач -->
+{% extends 'head.html' %}
+{% block content %}
+<form action="" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <input type="hidden" name="prev_page" value="{{ prev_page }}">
+        <a href="{{ prev_page }}" class="btn btn-default btn-sm">
+            <i class="fas fa-arrow-left"></i> Назад
+        </a>
+    <div class="create-edit-form-container">
+        <h2>{{ header }}</h2>
+        {{ form_create }}
+        {{ form_edit }}
+        <button name="save" class="btn btn-primary">Сохранить</button>
+    </div>
+</form>
+{% endblock content %}

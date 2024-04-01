@@ -1,0 +1,30 @@
+<!-- Страница с всей информацией о конкретной задаче-->
+{% extends 'head.html' %}
+{% block content %}
+<form method="post" action="."> 
+    {% csrf_token %}
+    <div class="task-info-container">
+        <div class="button-container">
+            <input type="hidden" name="prev_page" value="{{ prev_page }}">
+            <a href="{{ prev_page }}" class="btn btn-default btn-sm">
+                <i class="fas fa-arrow-left"></i> Назад
+            </a>
+            <button name="editTask" value="{{ task.id }}" class="btn btn-warning btn-sm">
+                <i class="fas fa-edit"> Изменить задачу</i>
+            </button>
+            <button name="deleteTask" value="{{ task.id }}" class="btn btn-danger btn-sm">
+                <i class="fas fa-trash-alt"> Удалить задачу</i>
+            </button>
+        </div>
+        <h2>Информация о задаче</h2>
+        <p><strong>Проект:</strong> {{ task.project }}</p>
+        <p><strong>Задача:</strong> {{ task.title }}</p>
+        <p><strong>Описание:</strong> {{ task.description }}</p>
+        <p><strong>Дата создания:</strong> {{ task.created_date|date:"d.m.Y H:i" }}</p>
+        <p><strong>Крайний срок:</strong> {{ task.deadline|date:"d.m.Y H:i" }}</p>
+        <p><strong>Напоминание:</strong> {{ task.reminder|date:"d.m.Y H:i" }}</p>
+        <p><strong>Статус:</strong> {{ task.status }}</p>
+        <p><strong>Пользователь:</strong> {{ task.task_user }}</p>
+    </div>
+</form>
+{% endblock content %}
