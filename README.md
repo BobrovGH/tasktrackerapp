@@ -19,7 +19,10 @@
 ![Страница  Задачи по проектам](https://github.com/user-attachments/assets/c66eb0eb-9b50-4085-b13d-2cd8cb929290) <p>
 - Форма создания новой задачи <p>
 ![Форма создания новой задачи — средний размер](https://github.com/user-attachments/assets/e51efae5-405e-428e-b3fe-463fb185d065)<p>
-<summary>Для работы приложения инструкция к установке </summary>
+
+# Инструкция к приложению (страница "О трекере")
+<details>
+<summary>Инструкция к установке </summary>
 
 - Клонировать репозиторий:
   
@@ -50,9 +53,6 @@ py manage.py runserver
 
 
 </details>
-
-
-# Инструкция к приложению (страница "О трекере")
 <details>
 <summary>Инструкция к приложению </summary>
 
